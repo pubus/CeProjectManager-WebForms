@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Web;
@@ -11,6 +12,7 @@ namespace CeProjectManager.Models
     public class User
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
 
         public string Login { get; set; }
@@ -23,17 +25,41 @@ namespace CeProjectManager.Models
 
         public bool Logged { get; set; }
 
-        public virtual List<UserPrivilege> Privilegeses { get; set; }
+        public virtual ICollection<Privilege> Privileges { get; set; }
 
-        public virtual List<Message> Messages { get; set; }
+        public virtual ICollection<Message> Messages { get; set; }
 
-        public virtual List<News> News { get; set; }
+        public virtual ICollection<Group> Groups { get; set; }
 
+        /*
         public User()
         {
             Privilegeses = new List<UserPrivilege>();
             Messages = new List<Message>();
-            News = new List<News>();
         }
+         */
+        /*
+        public bool LoginUser()
+        {
+            
+            try
+            {
+                CeSystemContext db = new CeSystemContext();
+
+                this.Logged = true;
+                db.Users
+            }
+            catch (Exception)
+            {
+                    
+                throw;
+            }
+        }
+
+        public bool LogoutUser()
+        {
+            
+        }
+         */
     }
 }
