@@ -4948,8 +4948,6 @@ a.list-group-item.active > .badge,
 
 .container .jumbotron {
   border-radius: 6px;
-    height: 30px;
-    margin-top: 0px;
 }
 
 @media screen and (min-width: 768px) {
