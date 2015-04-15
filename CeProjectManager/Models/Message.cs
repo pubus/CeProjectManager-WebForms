@@ -19,6 +19,9 @@ namespace CeProjectManager.Models
 
         public DateTime DateTime { get; set; }
 
+        [MaxLength(255), StringLength(255, ErrorMessage = "{0} can have max length of {1} characters")]
+        public string Subject { get; set; }
+
         [MaxLength(1024), StringLength(1024, ErrorMessage = "{0} can have max length of {1} characters")]
         public string Text { get; set; }
 

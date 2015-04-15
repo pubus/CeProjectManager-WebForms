@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CeProjectManager.Tools;
 
 namespace CeProjectManager
 {
@@ -11,7 +13,16 @@ namespace CeProjectManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void LogOut(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            FormsAuthentication.SignOut();
+            FormsAuthentication.RedirectToLoginPage();
+            //Response.Redirect("~/LoginPage.aspx");
+            //Response.Clear();
         }
     }
 }

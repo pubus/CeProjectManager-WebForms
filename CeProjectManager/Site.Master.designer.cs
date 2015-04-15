@@ -13,6 +13,42 @@ namespace CeProjectManager {
     public partial class SiteMaster {
         
         /// <summary>
+        /// AdminPanelLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor AdminPanelLink;
+        
+        /// <summary>
+        /// NewsLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor NewsLink;
+        
+        /// <summary>
+        /// MessagesLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor MessagesLink;
+        
+        /// <summary>
+        /// LogOutLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor LogOutLink;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
