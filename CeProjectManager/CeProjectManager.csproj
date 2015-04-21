@@ -137,7 +137,8 @@
     <Content Include="AddUser.aspx" />
     <Content Include="EditUser.aspx" />
     <Content Include="AddNews.aspx" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="ViewMessages.aspx" />
+    <Content Include="ReadMessage.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -295,12 +296,19 @@
     <Compile Include="AddNews.aspx.designer.cs">
       <DependentUpon>AddNews.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="ViewMessages.aspx.cs">
+      <DependentUpon>ViewMessages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="ViewMessages.aspx.designer.cs">
+      <DependentUpon>ViewMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReadMessage.aspx.cs">
+      <DependentUpon>ReadMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReadMessage.aspx.designer.cs">
+      <DependentUpon>ReadMessage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

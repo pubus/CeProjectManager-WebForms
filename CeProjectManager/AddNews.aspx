@@ -17,7 +17,7 @@
       <div class="form-group">
         <label class="col-sm-2 control-label">Text</label>
         <div class="col-sm-10">
-            <asp:TextBox ID="NewsTextBox" runat="server" class="form-control" Rows="10" TextMode="MultiLine"></asp:TextBox>    
+            <asp:TextBox ID="NewsTextBox" runat="server" class="form-control" Rows="10" TextMode="MultiLine" MaxLength="1024"></asp:TextBox>    
         </div>
       </div>
       <div class="form-group">

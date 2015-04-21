@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using System.Web.UI.WebControls;
 using CeProjectManager.Models;
 
 namespace CeProjectManager.Tools
@@ -24,14 +25,30 @@ namespace CeProjectManager.Tools
 
             return sb.ToString().ToLower();
         }
-    }
 
+        public static int GetColumnIndexByName(GridViewRow row, string searchColumnName)
+        {
+            int columnIndex = 0;
+            foreach (DataControlFieldCell cell in row.Cells)
+            {
+                if (cell.ContainingField is BoundField)
+                {
+                    if (((BoundField)cell.ContainingField).DataField.Equals(searchColumnName))
+                    {
+                        break;
+                    }
+                }
+                columnIndex++;
+            }
+            return columnIndex;
+        }
+    }
+    
     public class MySession
     {
         // private constructor
         private MySession()
         {
-            IsLogged = false;
             CurrentUser = null;
         }
 
@@ -51,7 +68,6 @@ namespace CeProjectManager.Tools
             }
         }
 
-        public bool IsLogged { get; set; }
         public User CurrentUser { get; set; }
     }
 }

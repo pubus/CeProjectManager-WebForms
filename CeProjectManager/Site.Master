@@ -50,6 +50,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">CE Project Manager</a>
                 </div>
@@ -60,7 +61,8 @@
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a ID="AdminPanelLink" runat="server" href="~/AdminPanel.aspx">Admin Panel</a></li>
                         <li><a ID="NewsLink" runat="server" href="~/ViewNews.aspx">News</a></li>
-                        <li><a ID="MessagesLink" runat="server" href="~/NewMessage.aspx">Messages</a></li>
+                        <li><a ID="MessagesLink" runat="server" href="~/ViewMessages.aspx">Messages</a></li>
+                        <li><a ID="EditProfileLink" runat="server" href="~/EditUser.aspx">Edit Profile</a></li>
                         <li><a ID="LogOutLink" runat="server" href="~/LoginPage.aspx?_logout=true">Log out</a></li>
                     </ul>
                 </div>

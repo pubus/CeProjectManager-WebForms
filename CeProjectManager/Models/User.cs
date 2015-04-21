@@ -20,6 +20,11 @@ namespace CeProjectManager.Models
         public string Name { get; set; }
 
         public string Surname { get; set; }
+
+        public string Email { get; set; }
+
+        [NotMapped]
+        public string PrivilegesString { get; set; }
         
         public string Password { get; set; } //SHA1
 
@@ -31,13 +36,14 @@ namespace CeProjectManager.Models
 
         public virtual ICollection<Group> Groups { get; set; }
 
-        /*
-        public User()
+        
+        public void CreatePrivilegesString()
         {
-            Privilegeses = new List<UserPrivilege>();
-            Messages = new List<Message>();
+            if(Privileges != null)
+                foreach (Privilege p in Privileges)
+                    PrivilegesString += p.Name + " ";
         }
-         */
+        
         /*
         public bool LoginUser()
         {

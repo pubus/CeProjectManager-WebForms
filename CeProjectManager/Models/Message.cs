@@ -17,19 +17,30 @@ namespace CeProjectManager.Models
 
         public virtual User Recipient { get; set; }
 
-        public DateTime DateTime { get; set; }
-
         [MaxLength(255), StringLength(255, ErrorMessage = "{0} can have max length of {1} characters")]
         public string Subject { get; set; }
 
         [MaxLength(1024), StringLength(1024, ErrorMessage = "{0} can have max length of {1} characters")]
         public string Text { get; set; }
 
-        /*
-        public Message()
+        public DateTime DateTime { get; set; }
+
+        public bool Unread { get; set; }
+
+        [NotMapped]
+        public string ShortText
         {
-            DateTime = new DateTime();
+            get
+            {
+                if (Text != null && Text.Length > 45)
+                {
+                    return Text.Substring(0, 45) + "...";
+                }
+                else
+                {
+                    return Text;
+                }
+            }
         }
-         */ 
     }
 }

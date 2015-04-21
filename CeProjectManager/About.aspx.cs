@@ -6,6 +6,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using CeProjectManager.Models;
 using CeProjectManager.Tools;
 
 namespace CeProjectManager
@@ -23,6 +24,7 @@ namespace CeProjectManager
 
             if (MySession.Current.CurrentUser == null || MySession.Current.CurrentUser.Privileges.All(p => p.Name != "Admin"))
                 adminPanelButton.Visible = false;
+
         }
     }
 }

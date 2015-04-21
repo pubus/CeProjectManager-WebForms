@@ -20,21 +20,33 @@ namespace CeProjectManager
             HtmlAnchor adminPanelButton = (HtmlAnchor) Master.FindControl("AdminPanelLink");
             HtmlAnchor newsButton = (HtmlAnchor)Master.FindControl("NewsLink");
             HtmlAnchor messagesButton = (HtmlAnchor)Master.FindControl("MessagesLink");
+            HtmlAnchor editProfileButton = (HtmlAnchor) Master.FindControl("EditProfileLink");
 
             if (Request.QueryString["_logout"] != null)
             {
-                logOutButton.Visible = false;
-                adminPanelButton.Visible = false;
-                newsButton.Visible = false;
-                messagesButton.Visible = false;
-                loginH2.InnerText = "Login Again!";
+                //logOutButton.Visible = false;
+                //adminPanelButton.Visible = false;
+                //newsButton.Visible = false;
+                //messagesButton.Visible = false;
+                //loginH2.InnerText = "Login Again!";
                 //Session.Abandon();
+                
+                if (MySession.Current.CurrentUser != null)
+                {
+                    using (CeSystemContext db = new CeSystemContext())
+                    {
+                        User user = db.Users.Where(u => u.Login == MySession.Current.CurrentUser.Login).ToList()[0];
+                        user.Logged = false;
+                        db.SaveChanges();
 
-                Tools.MySession.Current.IsLogged = false;
+                        MySession.Current.CurrentUser.Logged = false;
+                    }
+                }
+                
                 FormsAuthentication.SignOut();
                 FormsAuthentication.RedirectToLoginPage();
             }
-            else if (MySession.Current.IsLogged || this.User.Identity.IsAuthenticated)
+            else if (MySession.Current.CurrentUser != null && MySession.Current.CurrentUser.Logged && this.User.Identity.IsAuthenticated)
             {
                 /*logOutButton.Visible = true;
                 newsButton.Visible = true;
@@ -52,6 +64,7 @@ namespace CeProjectManager
             newsButton.Visible = false;
             messagesButton.Visible = false;
             logOutButton.Visible = false;
+            editProfileButton.Visible = false;
         }
         
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
@@ -67,9 +80,7 @@ namespace CeProjectManager
                     db.SaveChanges();
 
                     e.Authenticated = true;
-                    Tools.MySession.Current.IsLogged = true;
                     Tools.MySession.Current.CurrentUser = res[0];
-
                     FormsAuthentication.RedirectFromLoginPage(Login1.UserName, true);
                 }
                 else
