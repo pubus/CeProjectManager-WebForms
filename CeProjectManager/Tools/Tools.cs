@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -41,6 +43,41 @@ namespace CeProjectManager.Tools
                 columnIndex++;
             }
             return columnIndex;
+        }
+
+        public static string ComputeFileHash(FileStream fileStream)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                return BitConverter.ToString(md5.ComputeHash(fileStream)).Replace("-", "").ToLower();
+            }
+        }
+
+        public static class AppSettings
+        {
+            static void Modify(string key, string value)
+            {
+                if (string.IsNullOrEmpty(key)) return;
+                if (string.IsNullOrEmpty(value)) return;
+
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                AppSettingsSection appSettings = (AppSettingsSection)config.GetSection("appSettings");
+                appSettings.Settings.Remove(key);
+                appSettings.Settings.Add(key, value);
+                config.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("appSettings");
+            }
+
+            static AppSettings()
+            {
+
+            }
+            
+            public static string FileStorage
+            {
+                get { return ConfigurationManager.AppSettings["storage"]; }
+                set { Modify("storage", value); }
+            }
         }
     }
     

@@ -49,6 +49,15 @@ namespace CeProjectManager {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor EditProfileLink;
         
         /// <summary>
+        /// Tasks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor Tasks;
+        
+        /// <summary>
         /// LogOutLink control.
         /// </summary>
         /// <remarks>
@@ -65,5 +74,14 @@ namespace CeProjectManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        
+        /// <summary>
+        /// ChatPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ChatPanel;
     }
 }
