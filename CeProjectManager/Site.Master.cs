@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using CeProjectManager.Tools;
 
@@ -13,7 +14,27 @@ namespace CeProjectManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            /*HtmlAnchor logOutButton = (HtmlAnchor)Master.FindControl("LogOutLink");
+            HtmlAnchor adminPanelButton = (HtmlAnchor)Master.FindControl("AdminPanelLink");
+            HtmlAnchor newsButton = (HtmlAnchor)Master.FindControl("NewsLink");
+            HtmlAnchor messagesButton = (HtmlAnchor)Master.FindControl("MessagesLink");
+            HtmlAnchor editProfileButton = (HtmlAnchor)Master.FindControl("EditProfileLink");
+            HtmlAnchor homeButton = (HtmlAnchor)Master.FindControl("HomeLink");
+            Panel chatPanel = (Panel)Master.FindControl("ChatPanel");
+            */
+            if (!this.Page.User.Identity.IsAuthenticated)
+            {
+                AdminPanelLink.Visible = false;
+                NewsLink.Visible = false;
+                MessagesLink.Visible = false;
+                LogOutLink.Visible = false;
+                EditProfileLink.Visible = false;
+                ChatPanel.Visible = false;
+                HomeLink.Visible = false;
+            }
+
+            if (MySession.Current.CurrentUser == null || MySession.Current.CurrentUser.Privileges.All(p => p.Name != "Admin"))
+                AdminPanelLink.Visible = false;
         }
 
         protected void LogOut(object sender, EventArgs e)

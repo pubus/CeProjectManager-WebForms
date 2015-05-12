@@ -36,6 +36,8 @@ namespace CeProjectManager.Models
 
         public virtual ICollection<Group> Groups { get; set; }
 
+        public virtual ICollection<Task> Tasks { get; set; }
+
         
         public void CreatePrivilegesString()
         {

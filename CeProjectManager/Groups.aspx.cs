@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -12,34 +11,31 @@ using CeProjectManager.Tools;
 
 namespace CeProjectManager
 {
-    public partial class AdminPanel : System.Web.UI.Page
+    public partial class Groups : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.Page.User.Identity.IsAuthenticated)
                 FormsAuthentication.RedirectToLoginPage();
 
-            if (MySession.Current.CurrentUser == null || MySession.Current.CurrentUser.Privileges.All(p => p.Name != "Admin"))
+            if (MySession.Current.CurrentUser == null ||
+                MySession.Current.CurrentUser.Privileges.All(p => p.Name != "Admin" && p.Name != "CanCreateGroups"))
                 Response.Redirect("Default.aspx");
-            
+
             using (CeSystemContext db = new CeSystemContext())
             {
-                List<User> users = db.Users.Include(p => p.Privileges).ToList();
-
-                foreach (User u in users)
-                    u.CreatePrivilegesString();
-
-                GridView1.DataSource = users;
+                List<Group> groups = db.Groups.ToList();
+                
+                GridView1.DataSource = groups;
                 GridView1.DataBind();
             }
         }
-        
+
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                LinkButton del = e.Row.Cells[0].Controls[2] as LinkButton;
-                //Debug.WriteLine(e.Row.Cells[0].Controls.Count);
+                LinkButton del = e.Row.Cells[0].Controls[0] as LinkButton;
                 del.Attributes.Add("onclick", "return confirm('Are you sure you want to delete this event?');");
             }
             

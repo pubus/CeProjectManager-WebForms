@@ -21,6 +21,7 @@ namespace CeProjectManager
             HtmlAnchor newsButton = (HtmlAnchor)Master.FindControl("NewsLink");
             HtmlAnchor messagesButton = (HtmlAnchor)Master.FindControl("MessagesLink");
             HtmlAnchor editProfileButton = (HtmlAnchor)Master.FindControl("EditProfileLink");
+            HtmlAnchor homeButton = (HtmlAnchor)Master.FindControl("HomeLink");
             Panel chatPanel = (Panel) Master.FindControl("ChatPanel");
 
             if (Request.QueryString["_logout"] != null)
@@ -67,6 +68,7 @@ namespace CeProjectManager
             logOutButton.Visible = false;
             editProfileButton.Visible = false;
             chatPanel.Visible = false;
+            homeButton.Visible = false;
         }
         
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
