@@ -33,18 +33,12 @@ namespace CeProjectManager
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                LinkButton del = e.Row.Cells[0].Controls[0] as LinkButton;
-                del.Attributes.Add("onclick", "return confirm('Are you sure you want to delete this event?');");
-            }
-            
-            e.Row.Cells[e.Row.Cells.Count - 2].Visible = false;
+            e.Row.Cells[e.Row.Cells.Count - 3].Visible = false;
         }
 
         protected void GridView1_RowCreated(object sender, GridViewRowEventArgs e)
         {
-            List<DataControlField> columns = GridView1.Columns.Cast<DataControlField>().ToList();
+            /*List<DataControlField> columns = GridView1.Columns.Cast<DataControlField>().ToList();
 
             DataControlField privColumn = columns[columns.Count - 1];
             columns.RemoveAt(columns.Count - 1);
@@ -52,11 +46,12 @@ namespace CeProjectManager
 
             foreach (DataControlField c in columns)
                 GridView1.Columns.Add(c);
+            */
         }
 
         protected void GridView1_RowEdit(object sender, GridViewEditEventArgs e)
         {
-            Response.Redirect("~/EditUser.aspx?userLogin=" + GridView1.Rows[e.NewEditIndex].Cells[Tools.Tools.GetColumnIndexByName(GridView1.Rows[e.NewEditIndex], "Login")].Text);
+            //Response.Redirect("~/EditUser.aspx?userLogin=" + GridView1.Rows[e.NewEditIndex].Cells[Tools.Tools.GetColumnIndexByName(GridView1.Rows[e.NewEditIndex], "Login")].Text);
         }
 
         protected void GridView1_RowDelete(object sender, GridViewDeleteEventArgs e)

@@ -28,12 +28,6 @@ namespace CeProjectManager
                 return;
             }
             
-            HtmlAnchor adminPanelButton = (HtmlAnchor)Master.FindControl("AdminPanelLink");
-
-            if(MySession.Current.CurrentUser.Privileges.All(p => p.Name != "Admin"))
-                adminPanelButton.Visible = false;
-
-            
             HtmlGenericControl dl = new HtmlGenericControl("dl");
             dl.Attributes.Add("class", "dl-horizontal");
 

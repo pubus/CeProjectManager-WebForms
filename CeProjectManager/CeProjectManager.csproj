@@ -139,6 +139,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GlobalChatWindow.aspx" />
+    <Content Include="GlobalChatWindow.html" />
     <Content Include="Icon.png" />
     <Content Include="Images\SplitterHandle.gif" />
     <Content Include="packages.config" />
@@ -153,6 +155,7 @@
     <Content Include="NewMessage.aspx" />
     <Content Include="Scripts\jquery.signalR-2.2.0.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Styles\ChatStyles.css" />
     <Content Include="ViewNews.aspx" />
     <Content Include="AddUser.aspx" />
     <Content Include="EditUser.aspx" />
@@ -216,6 +219,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChatHub.cs" />
+    <Compile Include="GlobalChatWindow.aspx.cs">
+      <DependentUpon>GlobalChatWindow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalChatWindow.aspx.designer.cs">
+      <DependentUpon>GlobalChatWindow.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CeSystemContext.cs" />
     <Compile Include="Models\Files.cs" />

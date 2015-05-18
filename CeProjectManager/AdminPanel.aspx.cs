@@ -40,7 +40,7 @@ namespace CeProjectManager
             {
                 LinkButton del = e.Row.Cells[0].Controls[2] as LinkButton;
                 //Debug.WriteLine(e.Row.Cells[0].Controls.Count);
-                del.Attributes.Add("onclick", "return confirm('Are you sure you want to delete this event?');");
+                del.Attributes.Add("onclick", "return confirm('Are you sure you want to delete this user?');");
             }
             
             e.Row.Cells[e.Row.Cells.Count - 2].Visible = false;
@@ -65,7 +65,19 @@ namespace CeProjectManager
 
         protected void GridView1_RowDelete(object sender, GridViewDeleteEventArgs e)
         {
-           
+            using (CeSystemContext db = new CeSystemContext())
+            {
+                string login = GridView1.Rows[e.RowIndex].Cells[Tools.Tools.GetColumnIndexByName(GridView1.Rows[e.RowIndex], "Login")].Text;
+
+                User user = db.Users.SingleOrDefault(u => u.Login == login);
+
+                if (user != null)
+                {
+                    db.Users.Remove(user);
+                    db.SaveChanges();
+                    Response.Redirect("~/AdminPanel.aspx");
+                }
+            }
         }
     }
 }

@@ -22,6 +22,13 @@ namespace CeProjectManager
             HtmlAnchor homeButton = (HtmlAnchor)Master.FindControl("HomeLink");
             Panel chatPanel = (Panel)Master.FindControl("ChatPanel");
             */
+
+            if (MySession.Current.CurrentUser == null)
+            {
+                FormsAuthentication.SignOut();
+                FormsAuthentication.RedirectToLoginPage();
+            }
+            
             if (!this.Page.User.Identity.IsAuthenticated)
             {
                 AdminPanelLink.Visible = false;
@@ -29,11 +36,19 @@ namespace CeProjectManager
                 MessagesLink.Visible = false;
                 LogOutLink.Visible = false;
                 EditProfileLink.Visible = false;
-                ChatPanel.Visible = false;
                 HomeLink.Visible = false;
+                GroupsLink.Visible = false;
+                TasksLink.Visible = false;
+                GlobalChat.Visible = false;
+                
+                LogInLink.Visible = true;
             }
-
-            if (MySession.Current.CurrentUser == null || MySession.Current.CurrentUser.Privileges.All(p => p.Name != "Admin"))
+            else
+            {
+                LogInLink.Visible = false;
+            }
+            
+            if(MySession.Current.CurrentUser.Privileges.All(p => p.Name != "Admin"))
                 AdminPanelLink.Visible = false;
         }
 
@@ -45,5 +60,6 @@ namespace CeProjectManager
             //Response.Redirect("~/LoginPage.aspx");
             //Response.Clear();
         }
+
     }
 }

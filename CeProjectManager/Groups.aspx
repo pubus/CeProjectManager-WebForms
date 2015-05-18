@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Groups.aspx.cs" Inherits="CeProjectManager.Groups" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">\
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div>
         
             <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateEditButton="True" 

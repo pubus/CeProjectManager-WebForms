@@ -16,14 +16,6 @@ namespace CeProjectManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            HtmlAnchor logOutButton = (HtmlAnchor)Master.FindControl("LogOutLink");
-            HtmlAnchor adminPanelButton = (HtmlAnchor) Master.FindControl("AdminPanelLink");
-            HtmlAnchor newsButton = (HtmlAnchor)Master.FindControl("NewsLink");
-            HtmlAnchor messagesButton = (HtmlAnchor)Master.FindControl("MessagesLink");
-            HtmlAnchor editProfileButton = (HtmlAnchor)Master.FindControl("EditProfileLink");
-            HtmlAnchor homeButton = (HtmlAnchor)Master.FindControl("HomeLink");
-            Panel chatPanel = (Panel) Master.FindControl("ChatPanel");
-
             if (Request.QueryString["_logout"] != null)
             {
                 //logOutButton.Visible = false;
@@ -61,14 +53,6 @@ namespace CeProjectManager
                 */
                 Response.Redirect("Default.aspx");
             }
-        
-            adminPanelButton.Visible = false;
-            newsButton.Visible = false;
-            messagesButton.Visible = false;
-            logOutButton.Visible = false;
-            editProfileButton.Visible = false;
-            chatPanel.Visible = false;
-            homeButton.Visible = false;
         }
         
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)

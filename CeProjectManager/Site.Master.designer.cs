@@ -31,13 +31,13 @@ namespace CeProjectManager {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AdminPanelLink;
         
         /// <summary>
-        /// Groups control.
+        /// GroupsLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor Groups;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor GroupsLink;
         
         /// <summary>
         /// NewsLink control.
@@ -67,13 +67,13 @@ namespace CeProjectManager {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor EditProfileLink;
         
         /// <summary>
-        /// Tasks control.
+        /// TasksLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor Tasks;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor TasksLink;
         
         /// <summary>
         /// LogOutLink control.
@@ -85,6 +85,24 @@ namespace CeProjectManager {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor LogOutLink;
         
         /// <summary>
+        /// LogInLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor LogInLink;
+        
+        /// <summary>
+        /// GlobalChat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor GlobalChat;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
@@ -92,14 +110,5 @@ namespace CeProjectManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-        
-        /// <summary>
-        /// ChatPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel ChatPanel;
     }
 }
