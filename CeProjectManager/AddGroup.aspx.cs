@@ -8,6 +8,8 @@ using System.Web.UI.WebControls;
 using CeProjectManager.Models;
 using CeProjectManager.Tools;
 
+/* This is just a meaningless change for the commit */
+
 namespace CeProjectManager
 {
     public partial class AddGroup : System.Web.UI.Page
